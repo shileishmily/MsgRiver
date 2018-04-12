@@ -1,0 +1,2 @@
+apply from: '../common.gradle'
+apply from: 'gradle_maven.gradle'

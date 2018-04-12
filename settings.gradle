@@ -1,0 +1,10 @@
+rootProject.name = 'MsgRiver'
+include 'common'
+include 'broker'
+include 'consumer'
+include 'producer'
+
+project(':common').projectDir = "$rootDir/common" as File
+project(':broker').projectDir = "$rootDir/broker" as File
+project(':consumer').projectDir = "$rootDir/consumer" as File
+project(':producer').projectDir = "$rootDir/producer" as File

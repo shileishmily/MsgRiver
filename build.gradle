@@ -1,0 +1,79 @@
+allprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        maven { url 'http://maven.youguu.com:8081/nexus/content/groups/java_youguu/' }
+    }
+
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+
+    compileTestJava {
+        options.encoding = 'UTF-8'
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
+
+}
+
+project(':common') {
+    dependencies {
+        compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+        compile group: 'commons-pool', name: 'commons-pool', version: '1.6'
+        compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+
+        compile group: 'com.google.guava', name: 'guava', version: '23.0'
+        compile group: 'com.esotericsoftware', name: 'kryo', version: '4.0.1'
+
+        compile group: 'org.springframework', name: 'spring-aop', version: '4.3.14.RELEASE'
+
+
+        compile fileTree(dir: 'libs', include: '*.jar')
+    }
+}
+
+project(':broker') {
+    dependencies {
+        compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
+        compile group: 'com.google.guava', name: 'guava', version: '23.0'
+        compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.14.RELEASE'
+
+
+        compile fileTree(dir: 'libs', include: '*.jar')
+        compile project(':common')
+    }
+}
+
+project(':producer') {
+    dependencies {
+        compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
+
+
+        compile fileTree(dir: 'libs', include: '*.jar')
+        compile project(':common')
+    }
+}
+
+project(':consumer') {
+    dependencies {
+        compile group: 'io.netty', name: 'netty-all', version: '4.1.22.Final'
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+        compile group: 'com.google.guava', name: 'guava', version: '23.0'
+        compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+
+
+        compile fileTree(dir: 'libs', include: '*.jar')
+        compile project(':common')
+    }
+}
+

@@ -1,0 +1,32 @@
+apply plugin: 'maven-publish' 
+
+
+group = GROUPID
+version = VERSION
+
+task sourceJar(type: Jar) { 
+    from sourceSets.main.allJava 
+} 
+
+publishing { 
+    publications { 
+        mavenJava(MavenPublication) { 
+            from components.java
+            artifactId "msg-river-common"
+	    
+            artifact sourceJar { 
+                classifier "sources" 
+            } 
+	    
+        } 
+    } 
+    repositories { 
+        maven { 
+            url "http://192.168.1.62:8081/nexus/content/repositories/java_Releases/"
+            credentials { 
+              username 'admin'
+              password 'jhss#2016'
+            } 
+        } 
+    } 
+} 
