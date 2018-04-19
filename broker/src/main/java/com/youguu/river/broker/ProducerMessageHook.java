@@ -54,6 +54,12 @@ public class ProducerMessageHook implements ProducerMessageListener {
         CollectionUtils.forAllDo(focusTopicGroup, ifClosure);
     }
 
+    /**
+     * 消费者检查，如果没有消费者，应答生产者。
+     * @param msg
+     * @param requestId
+     * @return
+     */
     private boolean checkClustersSet(Message msg, String requestId) {
         if (clustersSet.size() == 0) {
             System.out.println("AvatarMQ don't have match clusters!");

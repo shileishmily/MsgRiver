@@ -21,10 +21,12 @@ public class BrokerParallelServer implements RemotingServer {
 
     }
 
+    @Override
     public void init() {
         executorService = new ExecutorCompletionService<Void>(executor);
     }
 
+    @Override
     public void start() {
         for (int i = 0; i < parallel; i++) {
             executorService.submit(new SendMessageController());
@@ -33,6 +35,7 @@ public class BrokerParallelServer implements RemotingServer {
         }
     }
 
+    @Override
     public void shutdown() {
         executor.shutdown();
     }

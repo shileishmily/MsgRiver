@@ -9,7 +9,7 @@ public class AvatarMQProducer1 {
 
     public static void main(String[] args) throws InterruptedException {
         AvatarMQProducer producer = new AvatarMQProducer("127.0.0.1:18888", "test_topic");
-        producer.setClusterId("aaaaaab");
+        producer.setClusterId("AvatarMQCluster");
         producer.init();
         producer.start();
 
@@ -27,7 +27,7 @@ public class AvatarMQProducer1 {
             Thread.sleep(1000);
         }
 
-//        producer.shutdown();
+        producer.shutdown();
         System.out.println(StringUtils.center("AvatarMQProducer1 消息发送完毕", 50, "*"));
     }
 }

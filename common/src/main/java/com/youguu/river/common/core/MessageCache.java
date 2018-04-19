@@ -22,7 +22,7 @@ public class MessageCache<T> {
     }
 
     public void parallelDispatch(LinkedList<T> list) {
-
+        System.out.println("dddddddddddddddddddddddddddddddddddddddddddddd");
     }
 
     public void commit(ConcurrentLinkedQueue<T> tasks) {
@@ -58,7 +58,7 @@ public class MessageCache<T> {
 
     protected Pair<Integer, Integer> calculateBlocks(int parallel, int sizeOfTasks) {
         int numberOfThreads = parallel > sizeOfTasks ? sizeOfTasks : parallel;
-        Pair<Integer, Integer> pair = new MutablePair<Integer, Integer>(new Integer(sizeOfTasks / numberOfThreads), new Integer(numberOfThreads));
+        Pair<Integer, Integer> pair = new MutablePair<>(new Integer(sizeOfTasks / numberOfThreads), new Integer(numberOfThreads));
         return pair;
     }
 }

@@ -17,11 +17,9 @@ public class ConsumerClusters {
 
     private int next = 0;
     private final String clustersId;
-    private final ConcurrentHashMap<String, SubscriptionData> subMap
-            = new ConcurrentHashMap<String, SubscriptionData>();
+    private final ConcurrentHashMap<String, SubscriptionData> subMap = new ConcurrentHashMap<>();
 
-    private final ConcurrentHashMap<String, RemoteChannelData> channelMap
-            = new ConcurrentHashMap<String, RemoteChannelData>();
+    private final ConcurrentHashMap<String, RemoteChannelData> channelMap  = new ConcurrentHashMap<>();
 
     private final List<RemoteChannelData> channelList = Collections.synchronizedList(new ArrayList<RemoteChannelData>());
 
@@ -49,6 +47,8 @@ public class ConsumerClusters {
         } else {
             System.out.println("consumer clusters exists! it's clientId:" + clientId);
         }
+
+        System.out.println("clientId="+clientId+", channelList size="+channelList.size());
     }
 
     public void detachRemoteChannelData(String clientId) {

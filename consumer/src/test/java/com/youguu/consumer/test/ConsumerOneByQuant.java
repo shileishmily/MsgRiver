@@ -20,7 +20,7 @@ public class ConsumerOneByQuant {
     public static void main(String[] args) {
         AvatarMQConsumer consumer = new AvatarMQConsumer("127.0.0.1:18888", "test_topic", hook);
         consumer.init();
-        consumer.setClusterId("aaaaaab");
+        consumer.setClusterId("AvatarMQCluster");
         consumer.receiveMode();
         consumer.start();
     }

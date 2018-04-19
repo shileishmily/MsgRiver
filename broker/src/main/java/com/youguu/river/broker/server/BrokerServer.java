@@ -56,6 +56,7 @@ public class BrokerServer extends BrokerParallelServer implements RemotingServer
         }
     }
 
+    @Override
     public void init() {
         try {
             handler = new MessageBrokerHandler().buildConsumerHook(new ConsumerMessageHook()).buildProducerHook(new ProducerMessageHook());
@@ -98,6 +99,7 @@ public class BrokerServer extends BrokerParallelServer implements RemotingServer
         return brokerServerPort;
     }
 
+    @Override
     public void shutdown() {
         try {
             super.shutdown();
@@ -110,6 +112,7 @@ public class BrokerServer extends BrokerParallelServer implements RemotingServer
         }
     }
 
+    @Override
     public void start() {
         try {
             String ipAddress = NettyUtil.socketAddress2String(serverIpAddr);

@@ -13,7 +13,7 @@ public class SendMessageLauncher {
 
     private long timeout = MessageSystemConfig.MessageTimeOutValue;
 
-    public Map<String, CallBackInvoker<Object>> invokeMap = new ConcurrentSkipListMap<String, CallBackInvoker<Object>>();
+    public Map<String, CallBackInvoker<Object>> invokeMap = new ConcurrentSkipListMap<>();
 
     private SendMessageLauncher() {
 

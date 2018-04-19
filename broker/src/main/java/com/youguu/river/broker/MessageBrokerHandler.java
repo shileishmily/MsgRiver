@@ -15,7 +15,7 @@ public class MessageBrokerHandler extends ShareMessageEventWrapper<Object> {
 
     private AtomicReference<ProducerMessageListener> hookProducer;
     private AtomicReference<ConsumerMessageListener> hookConsumer;
-    private AtomicReference<RequestMessage> message = new AtomicReference<RequestMessage>();
+    private AtomicReference<RequestMessage> message = new AtomicReference<>();
 
     public MessageBrokerHandler() {
         super.setWrapper(this);
